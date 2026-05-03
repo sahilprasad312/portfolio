@@ -20,22 +20,22 @@
   <style>
     :root {
       color-scheme: dark;
-      --bg: #05070d;
-      --bg-2: #090d18;
+      --bg: #000000;
+      --bg-2: #030006;
       --surface: rgba(255, 255, 255, 0.075);
       --surface-strong: rgba(255, 255, 255, 0.12);
       --surface-soft: rgba(255, 255, 255, 0.045);
       --border: rgba(255, 255, 255, 0.16);
       --border-strong: rgba(255, 255, 255, 0.26);
       --text: #f7fbff;
-      --muted: #a9b4c7;
-      --dim: #748199;
-      --cyan: #62e7ff;
-      --blue: #6b8dff;
-      --violet: #a879ff;
-      --mint: #6effc3;
-      --amber: #ffd166;
-      --rose: #ff6b9d;
+      --muted: #b2bdd2;
+      --dim: #7d8aa3;
+      --cyan: #00e5ff;
+      --blue: #0b1f35;
+      --violet: #2a3142;
+      --mint: #7df9d4;
+      --amber: #d9e6ef;
+      --rose: #6d7484;
       --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
       --glass-shadow: 0 18px 65px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.18);
       --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -46,26 +46,26 @@
 
     [data-theme="light"] {
       color-scheme: light;
-      --bg: #eef5ff;
-      --bg-2: #f8fbff;
+      --bg: #f5f7ff;
+      --bg-2: #ffffff;
       --surface: rgba(255, 255, 255, 0.58);
       --surface-strong: rgba(255, 255, 255, 0.74);
       --surface-soft: rgba(255, 255, 255, 0.36);
       --border: rgba(11, 25, 50, 0.13);
       --border-strong: rgba(11, 25, 50, 0.2);
-      --text: #07111f;
-      --muted: #4c5d77;
-      --dim: #6b7890;
-      --shadow: 0 28px 90px rgba(28, 50, 84, 0.2);
-      --glass-shadow: 0 18px 65px rgba(28, 50, 84, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.62);
+      --text: #070915;
+      --muted: #47536b;
+      --dim: #65708a;
+      --shadow: 0 28px 90px rgba(18, 20, 24, 0.16);
+      --glass-shadow: 0 18px 65px rgba(18, 20, 24, 0.14), inset 0 1px 0 rgba(255, 255, 255, 0.68);
     }
 
     [data-theme="light"] body {
       background:
-        radial-gradient(circle at 12% 18%, rgba(98, 231, 255, 0.34), transparent 28vw),
-        radial-gradient(circle at 78% 8%, rgba(168, 121, 255, 0.28), transparent 30vw),
-        radial-gradient(circle at 68% 62%, rgba(110, 255, 195, 0.2), transparent 24vw),
-        linear-gradient(180deg, var(--bg), var(--bg-2) 48%, #edf4ff);
+        radial-gradient(circle at 12% 18%, rgba(0, 245, 255, 0.26), transparent 28vw),
+        radial-gradient(circle at 78% 8%, rgba(0, 229, 255, 0.12), transparent 30vw),
+        radial-gradient(circle at 68% 62%, rgba(217, 230, 239, 0.2), transparent 24vw),
+        linear-gradient(180deg, var(--bg), var(--bg-2) 48%, #eef3ff);
     }
 
     * {
@@ -82,10 +82,10 @@
       min-height: 100vh;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 12% 18%, rgba(98, 231, 255, 0.22), transparent 28vw),
-        radial-gradient(circle at 78% 8%, rgba(168, 121, 255, 0.24), transparent 30vw),
-        radial-gradient(circle at 68% 62%, rgba(110, 255, 195, 0.13), transparent 24vw),
-        linear-gradient(180deg, var(--bg), var(--bg-2) 46%, #060813);
+        radial-gradient(circle at 10% 18%, rgba(0, 229, 255, 0.2), transparent 28vw),
+        radial-gradient(circle at 82% 8%, rgba(125, 249, 212, 0.08), transparent 30vw),
+        radial-gradient(circle at 68% 64%, rgba(255, 255, 255, 0.045), transparent 24vw),
+        linear-gradient(180deg, #000000, #020008 46%, #000000);
       color: var(--text);
       font-family: var(--font);
       line-height: 1.55;
@@ -110,7 +110,7 @@
       inset: 0;
       z-index: -2;
       background:
-        radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(98, 231, 255, .15), transparent 28rem),
+        radial-gradient(circle at var(--mx, 50%) var(--my, 20%), rgba(0, 229, 255, .12), transparent 28rem),
         linear-gradient(120deg, rgba(255,255,255,.04), transparent 42%);
       pointer-events: none;
       transition: background .2s linear;
@@ -172,20 +172,20 @@
     .blob.one {
       left: -12vw;
       top: 12vh;
-      background: rgba(98, 231, 255, .28);
+      background: rgba(0, 245, 255, .28);
     }
 
     .blob.two {
       right: -10vw;
       top: -8vh;
-      background: rgba(168, 121, 255, .27);
+      background: rgba(0, 229, 255, .1);
       animation-delay: -5s;
     }
 
     .blob.three {
       right: 8vw;
       bottom: -18vh;
-      background: rgba(110, 255, 195, .18);
+      background: rgba(125, 249, 212, .08);
       animation-delay: -9s;
     }
 
@@ -229,7 +229,7 @@
       position: absolute;
       inset: auto 12% 0;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(98, 231, 255, .85), transparent);
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 255, .82), rgba(217, 230, 239, .38), transparent);
       opacity: .74;
       pointer-events: none;
     }
@@ -269,7 +269,7 @@
       border-radius: 13px;
       color: #061018;
       background: conic-gradient(from 140deg, var(--cyan), var(--mint), var(--amber), var(--violet), var(--cyan));
-      box-shadow: 0 0 30px rgba(98, 231, 255, .32);
+      box-shadow: 0 0 30px rgba(0, 245, 255, .32);
       animation: shimmerSpin 7s linear infinite;
     }
 
@@ -335,8 +335,8 @@
     .icon-btn:hover,
     .menu-btn:hover {
       transform: translateY(-2px);
-      border-color: rgba(98,231,255,.46);
-      background: rgba(98,231,255,.12);
+      border-color: rgba(0,245,255,.46);
+      background: rgba(0,245,255,.12);
     }
 
     .menu-btn {
@@ -385,10 +385,10 @@
       width: fit-content;
       margin-bottom: 18px;
       padding: 9px 13px;
-      border: 1px solid rgba(98,231,255,.24);
+      border: 1px solid rgba(0,245,255,.24);
       border-radius: 999px;
       color: var(--cyan);
-      background: rgba(98,231,255,.075);
+      background: rgba(0,245,255,.075);
       font-family: var(--mono);
       font-size: .76rem;
       font-weight: 700;
@@ -400,13 +400,13 @@
       height: 8px;
       border-radius: 50%;
       background: var(--mint);
-      box-shadow: 0 0 0 0 rgba(110,255,195,.65);
+      box-shadow: 0 0 0 0 rgba(0,255,157,.65);
       animation: pulse 1.8s infinite;
     }
 
     @keyframes pulse {
-      70% { box-shadow: 0 0 0 12px rgba(110,255,195,0); }
-      100% { box-shadow: 0 0 0 0 rgba(110,255,195,0); }
+      70% { box-shadow: 0 0 0 12px rgba(0,255,157,0); }
+      100% { box-shadow: 0 0 0 0 rgba(0,255,157,0); }
     }
 
     h1 {
@@ -421,7 +421,7 @@
       display: block;
       margin-top: 6px;
       color: transparent;
-      background: linear-gradient(92deg, var(--cyan), var(--mint) 30%, var(--amber) 58%, var(--violet));
+      background: linear-gradient(92deg, var(--cyan), var(--mint) 42%, var(--amber) 72%, var(--cyan));
       background-size: 240% 100%;
       -webkit-background-clip: text;
       background-clip: text;
@@ -503,8 +503,8 @@
 
     .btn:hover {
       transform: translateY(-3px);
-      border-color: rgba(98,231,255,.55);
-      box-shadow: 0 15px 42px rgba(98,231,255,.18);
+      border-color: rgba(0,245,255,.55);
+      box-shadow: 0 15px 42px rgba(0,245,255,.18);
     }
 
     .btn:hover::before {
@@ -514,8 +514,8 @@
     .btn-primary {
       color: #031015;
       border: 0;
-      background: linear-gradient(135deg, var(--cyan), var(--mint) 58%, var(--amber));
-      box-shadow: 0 18px 52px rgba(98,231,255,.28);
+      background: linear-gradient(135deg, var(--cyan), var(--mint) 54%, var(--amber));
+      box-shadow: 0 18px 52px rgba(0,245,255,.28);
     }
 
     .hero-socials {
@@ -582,8 +582,8 @@
       flex: 0 0 auto;
       border-radius: 29px;
       padding: 3px;
-      background: conic-gradient(from 90deg, var(--cyan), var(--violet), var(--amber), var(--mint), var(--cyan));
-      box-shadow: 0 0 52px rgba(98,231,255,.24);
+      background: conic-gradient(from 90deg, var(--cyan), var(--mint), var(--amber), var(--violet), var(--cyan));
+      box-shadow: 0 0 52px rgba(0,245,255,.24);
     }
 
     .avatar-wrap img {
@@ -602,7 +602,7 @@
       border: 3px solid #101522;
       border-radius: 50%;
       background: var(--mint);
-      box-shadow: 0 0 18px rgba(110,255,195,.72);
+      box-shadow: 0 0 18px rgba(0,255,157,.72);
     }
 
     .profile-title h2 {
@@ -641,9 +641,9 @@
       border-radius: 50%;
     }
 
-    .terminal-dots span:nth-child(1) { background: var(--rose); }
+    .terminal-dots span:nth-child(1) { background: #5c6472; }
     .terminal-dots span:nth-child(2) { background: var(--amber); }
-    .terminal-dots span:nth-child(3) { background: var(--mint); }
+    .terminal-dots span:nth-child(3) { background: var(--cyan); }
 
     .code-row {
       display: flex;
@@ -752,7 +752,7 @@
       height: 12px;
       margin-top: 10px;
       border-radius: 999px;
-      background: linear-gradient(90deg, rgba(98,231,255,.42), rgba(168,121,255,.18));
+      background: linear-gradient(90deg, rgba(0,229,255,.36), rgba(217,230,239,.16));
     }
 
     .browser-line.short {
@@ -859,7 +859,7 @@
     .stat-card:hover,
     .contact-card:hover {
       transform: translateY(-8px);
-      border-color: rgba(98,231,255,.42);
+      border-color: rgba(0,245,255,.42);
       background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.055));
     }
 
@@ -872,12 +872,12 @@
       border-radius: 16px;
       color: #031015;
       background: linear-gradient(135deg, var(--cyan), var(--mint));
-      box-shadow: 0 16px 36px rgba(98,231,255,.2);
+      box-shadow: 0 16px 36px rgba(0,245,255,.2);
     }
 
-    .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, var(--violet), var(--rose)); color: white; }
-    .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, var(--amber), var(--rose)); color: #10070a; }
-    .feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, var(--mint), var(--blue)); color: #031015; }
+    .feature-card:nth-child(2) .feature-icon { background: linear-gradient(135deg, var(--cyan), var(--violet)); color: white; }
+    .feature-card:nth-child(3) .feature-icon { background: linear-gradient(135deg, var(--amber), var(--cyan)); color: #031015; }
+    .feature-card:nth-child(4) .feature-icon { background: linear-gradient(135deg, var(--mint), var(--cyan)); color: #031015; }
 
     .feature-card h3 {
       position: relative;
@@ -956,8 +956,8 @@
 
     .skill-chip:hover {
       transform: translateY(-4px) scale(1.03);
-      border-color: rgba(98,231,255,.4);
-      background: rgba(98,231,255,.12);
+      border-color: rgba(0,245,255,.4);
+      background: rgba(0,245,255,.12);
     }
 
     .skill-chip img {
@@ -1032,6 +1032,29 @@
       min-height: 74px;
       color: var(--muted);
       font-size: .95rem;
+    }
+
+    .project-points {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      min-height: 64px;
+      margin-top: 18px;
+    }
+
+    .project-point {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 999px;
+      color: var(--text);
+      background: rgba(255,255,255,.045);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .01em;
     }
 
     .project-meta {
@@ -1208,9 +1231,9 @@
 
     .field input:focus,
     .field textarea:focus {
-      border-color: rgba(98,231,255,.52);
+      border-color: rgba(0,245,255,.52);
       background: rgba(5, 7, 13, .64);
-      box-shadow: 0 0 0 4px rgba(98,231,255,.1);
+      box-shadow: 0 0 0 4px rgba(0,245,255,.1);
     }
 
     .footer {
@@ -1652,10 +1675,10 @@
           </div>
           <div class="github-wall">
             <div class="glass reveal">
-              <img src="https://github-readme-stats.vercel.app/api?username=sahilprasad312&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0b1020&title_color=62e7ff&icon_color=ffd166&text_color=f7fbff" alt="Sahil Prasad GitHub stats" loading="lazy" />
+              <img src="https://github-readme-stats.vercel.app/api?username=sahilprasad312&show_icons=true&theme=dark&hide_border=true&bg_color=000000&title_color=00e5ff&icon_color=d9e6ef&text_color=f7fbff" alt="Sahil Prasad GitHub stats" loading="lazy" />
             </div>
             <div class="glass reveal delay-1">
-              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahilprasad312&layout=compact&theme=tokyonight&hide_border=true&bg_color=0b1020&title_color=62e7ff&text_color=f7fbff" alt="Sahil Prasad top languages" loading="lazy" />
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sahilprasad312&layout=compact&theme=dark&hide_border=true&bg_color=000000&title_color=00e5ff&text_color=f7fbff" alt="Sahil Prasad top languages" loading="lazy" />
             </div>
           </div>
         </div>
@@ -1880,23 +1903,129 @@
     });
 
     const langColors = {
-      JavaScript: "#f1e05a",
-      Python: "#3572A5",
-      Dart: "#00B4AB",
-      Kotlin: "#A97BFF",
-      Java: "#b07219",
-      HTML: "#e34c26",
-      CSS: "#563d7c",
-      TypeScript: "#3178c6",
-      Shell: "#89e051",
-      C: "#555555",
-      default: "#62e7ff"
+      JavaScript: "#d9e6ef",
+      Python: "#00e5ff",
+      Dart: "#00e5ff",
+      Kotlin: "#7df9d4",
+      Java: "#d9e6ef",
+      HTML: "#00e5ff",
+      CSS: "#7df9d4",
+      TypeScript: "#00e5ff",
+      Shell: "#7df9d4",
+      C: "#9aa6b2",
+      default: "#00e5ff"
     };
 
     const projectIcons = ["fa-mobile-screen", "fa-bolt", "fa-database", "fa-globe", "fa-code", "fa-wand-magic-sparkles"];
 
+    const projectDetails = {
+      udhaar_setu: {
+        title: "Udhaar Setu",
+        summary: "Digital khata and credit-management app for tracking lending, borrowing, customer balances, reminders, and transaction reports.",
+        points: ["Digital ledger", "Debit/credit tracking", "Payment reminders", "PDF reports"],
+        icon: "fa-bolt",
+        priority: 1
+      },
+      "wish-you.in": {
+        title: "Wish You.In",
+        summary: "Personalized greeting-link web app for festivals, birthdays, and occasions, built for quick sharing with animated visual themes.",
+        points: ["Custom links", "Greeting cards", "Viral sharing", "Client-side UI"],
+        icon: "fa-wand-magic-sparkles",
+        priority: 2
+      },
+      "o-aadhunikbazar": {
+        title: "AadhunikBazar",
+        summary: "Modern-market e-commerce project with product browsing, cart-style flows, category organization, and localized storefront ideas.",
+        points: ["Product catalog", "Shopping flow", "Categories", "Responsive commerce"],
+        icon: "fa-store",
+        priority: 3
+      },
+      portfolio: {
+        title: "Portfolio",
+        summary: "Animated AMOLED portfolio website with liquid glass effects, GitHub-powered projects, smooth scrolling, and responsive sections.",
+        points: ["Liquid glass", "GitHub API", "Responsive UI", "Smooth motion"],
+        icon: "fa-id-card-clip",
+        priority: 4
+      },
+      "python-assignment-1": {
+        title: "Python Assignment 1",
+        summary: "Python practice repository focused on fundamentals, structured problem solving, and clean beginner-friendly programming exercises.",
+        points: ["Python basics", "Problem solving", "Assignments", "Practice code"],
+        icon: "fa-code",
+        priority: 5
+      },
+      "python-assignment-2": {
+        title: "Python Assignment 2",
+        summary: "Follow-up Python assignment repository extending practice with more exercises, logic building, and programming workflow familiarity.",
+        points: ["Python logic", "Exercises", "Learning repo", "Code practice"],
+        icon: "fa-terminal",
+        priority: 6
+      }
+    };
+
+    const fallbackProjectList = [
+      {
+        name: "Udhaar_Setu",
+        description: projectDetails.udhaar_setu.summary,
+        language: "Kotlin",
+        stargazers_count: 1,
+        forks_count: 0,
+        updated_at: "2026-05-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/Udhaar_Setu"
+      },
+      {
+        name: "wish-you.in",
+        description: projectDetails["wish-you.in"].summary,
+        language: "CSS",
+        stargazers_count: 1,
+        forks_count: 0,
+        updated_at: "2026-05-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/wish-you.in"
+      },
+      {
+        name: "o-AadhunikBazar",
+        description: projectDetails["o-aadhunikbazar"].summary,
+        language: "TypeScript",
+        stargazers_count: 3,
+        forks_count: 0,
+        updated_at: "2026-03-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/o-AadhunikBazar"
+      },
+      {
+        name: "portfolio",
+        description: projectDetails.portfolio.summary,
+        language: "HTML",
+        stargazers_count: 0,
+        forks_count: 0,
+        updated_at: "2026-05-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/portfolio"
+      },
+      {
+        name: "python-assignment-1",
+        description: projectDetails["python-assignment-1"].summary,
+        language: "Python",
+        stargazers_count: 3,
+        forks_count: 0,
+        updated_at: "2026-03-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/python-assignment-1"
+      },
+      {
+        name: "python-assignment-2",
+        description: projectDetails["python-assignment-2"].summary,
+        language: "Python",
+        stargazers_count: 3,
+        forks_count: 0,
+        updated_at: "2026-03-01T00:00:00Z",
+        html_url: "https://github.com/sahilprasad312/python-assignment-2"
+      }
+    ];
+
     function titleCase(name) {
       return name.replace(/[-_]/g, " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
+    }
+
+    function projectKey(name) {
+      return String(name).toLowerCase();
     }
 
     function escapeHtml(value) {
@@ -1911,21 +2040,37 @@
 
     function renderProjects(repos) {
       const grid = document.getElementById("projectsGrid");
-      const usable = repos.filter((repo) => repo.name !== "sahilprasad312").slice(0, 6);
+      const repoByName = new Map(repos.filter((repo) => repo.name !== "sahilprasad312").map((repo) => [projectKey(repo.name), repo]));
+      fallbackProjectList.forEach((project) => {
+        const key = projectKey(project.name);
+        if (!repoByName.has(key)) repoByName.set(key, project);
+      });
+      const usable = [...repoByName.values()]
+        .sort((a, b) => {
+          const detailA = projectDetails[projectKey(a.name)];
+          const detailB = projectDetails[projectKey(b.name)];
+          const priorityA = detailA?.priority || 99;
+          const priorityB = detailB?.priority || 99;
+          if (priorityA !== priorityB) return priorityA - priorityB;
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        })
+        .slice(0, 6);
       if (!usable.length) {
         renderFallbackProjects();
         return;
       }
 
       grid.innerHTML = usable.map((repo, index) => {
+        const details = projectDetails[projectKey(repo.name)];
         const lang = repo.language || "Code";
         const color = langColors[lang] || langColors.default;
-        const desc = repo.description || "A public repository by Sahil Prasad. Open GitHub to explore the source and project details.";
-        const icon = projectIcons[index % projectIcons.length];
-        const safeName = escapeHtml(titleCase(repo.name));
+        const desc = details?.summary || repo.description || "A public repository by Sahil Prasad. Open GitHub to explore the source and project details.";
+        const icon = details?.icon || projectIcons[index % projectIcons.length];
+        const safeName = escapeHtml(details?.title || titleCase(repo.name));
         const safeDesc = escapeHtml(desc.length > 140 ? `${desc.slice(0, 137)}...` : desc);
         const safeLang = escapeHtml(lang);
         const safeUrl = escapeHtml(repo.html_url);
+        const points = details?.points || [];
         return `
           <article class="project-card glass reveal" style="transition-delay:${index * 70}ms">
             <div class="project-top">
@@ -1934,6 +2079,9 @@
             </div>
             <h3>${safeName}</h3>
             <p>${safeDesc}</p>
+            <div class="project-points">
+              ${points.map((point) => `<span class="project-point">${escapeHtml(point)}</span>`).join("")}
+            </div>
             <div class="project-meta">
               <span class="meta-pill"><span class="lang-dot" style="background:${color}"></span>${safeLang}</span>
               <span class="meta-pill"><i class="fas fa-star"></i>${repo.stargazers_count || 0}</span>
@@ -1948,26 +2096,7 @@
     }
 
     function renderFallbackProjects() {
-      renderProjects([
-        {
-          name: "Udhaar_Setu",
-          description: "A digital solution for managing informal lending and borrowing.",
-          language: "Kotlin",
-          stargazers_count: 0,
-          forks_count: 0,
-          updated_at: new Date().toISOString(),
-          html_url: "https://github.com/sahilprasad312/Udhaar_Setu"
-        },
-        {
-          name: "wish-you.in",
-          description: "A wishlist and gifting platform built with modern web technologies.",
-          language: "JavaScript",
-          stargazers_count: 0,
-          forks_count: 0,
-          updated_at: new Date().toISOString(),
-          html_url: "https://github.com/sahilprasad312/wish-you.in"
-        }
-      ]);
+      renderProjects(fallbackProjectList);
     }
 
     async function loadGitHub() {
