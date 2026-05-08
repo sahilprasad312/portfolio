@@ -12,25 +12,6 @@ const root = document.documentElement;
 
     year.textContent = new Date().getFullYear();
 
-    let pointerFrame = 0;
-    let pointerX = window.innerWidth / 2;
-    let pointerY = window.innerHeight * 0.2;
-    let lastPointerAt = 0;
-    window.addEventListener("pointermove", (event) => {
-      if (window.innerWidth < 900) return;
-      const now = performance.now();
-      if (now - lastPointerAt < 48) return;
-      lastPointerAt = now;
-      pointerX = event.clientX;
-      pointerY = event.clientY;
-      if (pointerFrame) return;
-      pointerFrame = requestAnimationFrame(() => {
-        root.style.setProperty("--mx", `${pointerX}px`);
-        root.style.setProperty("--my", `${pointerY}px`);
-        pointerFrame = 0;
-      });
-    }, { passive: true });
-
     const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
     root.dataset.theme = savedTheme;
 
@@ -176,12 +157,14 @@ const root = document.documentElement;
       let index = 0;
 
       function writeNext() {
+        const nextBreak = output.indexOf("\n", index);
+        const nextIndex = nextBreak >= 0 && nextBreak - index < 4 ? nextBreak + 1 : index + 4;
+        index = Math.min(output.length, nextIndex);
         terminalStory.textContent = output.slice(0, index);
-        index += 1;
-        if (index <= output.length) {
-          const currentChar = output[index - 2] || "";
-          const delay = currentChar === "\n" ? 180 : currentChar === " " ? 16 : 24;
-          setTimeout(writeNext, delay);
+        if (index < output.length) {
+          const currentChar = output[index - 1] || "";
+          const delay = currentChar === "\n" ? 140 : 28;
+          setTimeout(() => requestAnimationFrame(writeNext), delay);
         }
       }
 
@@ -209,36 +192,6 @@ const root = document.documentElement;
     }, { threshold: 0.13 });
 
     document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
-
-    document.querySelectorAll(".magnetic").forEach((item) => {
-      item.addEventListener("pointermove", (event) => {
-        const rect = item.getBoundingClientRect();
-        const x = event.clientX - rect.left - rect.width / 2;
-        const y = event.clientY - rect.top - rect.height / 2;
-        item.style.transform = `translate(${x * 0.1}px, ${y * 0.18}px)`;
-      });
-      item.addEventListener("pointerleave", () => {
-        item.style.transform = "";
-      });
-    });
-
-    const tiltCard = document.getElementById("tiltCard");
-    let tiltFrame = 0;
-    let tiltEvent = null;
-    tiltCard.addEventListener("pointermove", (event) => {
-      tiltEvent = event;
-      if (tiltFrame) return;
-      tiltFrame = requestAnimationFrame(() => {
-      const rect = tiltCard.getBoundingClientRect();
-      const x = (tiltEvent.clientX - rect.left) / rect.width - 0.5;
-      const y = (tiltEvent.clientY - rect.top) / rect.height - 0.5;
-      tiltCard.querySelector(".profile-card").style.transform = `rotateY(${x * 9}deg) rotateX(${-y * 9}deg) translateY(-8px)`;
-        tiltFrame = 0;
-      });
-    }, { passive: true });
-    tiltCard.addEventListener("pointerleave", () => {
-      tiltCard.querySelector(".profile-card").style.transform = "";
-    });
 
     const langColors = {
       JavaScript: "#b8f7ff",
