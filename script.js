@@ -12,14 +12,19 @@ const root = document.documentElement;
 
     year.textContent = new Date().getFullYear();
 
+    function updateThemeIcon(theme) {
+      themeToggle.innerHTML = theme === "dark" ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    }
+
     const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
     root.dataset.theme = savedTheme;
+    updateThemeIcon(savedTheme);
 
     themeToggle.addEventListener("click", () => {
       const next = root.dataset.theme === "dark" ? "light" : "dark";
       root.dataset.theme = next;
       localStorage.setItem("portfolio-theme", next);
-      themeToggle.innerHTML = next === "dark" ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+      updateThemeIcon(next);
     });
 
     menuBtn.addEventListener("click", () => {
@@ -165,6 +170,8 @@ const root = document.documentElement;
           const currentChar = output[index - 1] || "";
           const delay = currentChar === "\n" ? 140 : 28;
           setTimeout(() => requestAnimationFrame(writeNext), delay);
+        } else {
+          refreshSectionPositions();
         }
       }
 
