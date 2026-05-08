@@ -15,7 +15,12 @@ const root = document.documentElement;
     let pointerFrame = 0;
     let pointerX = window.innerWidth / 2;
     let pointerY = window.innerHeight * 0.2;
+    let lastPointerAt = 0;
     window.addEventListener("pointermove", (event) => {
+      if (window.innerWidth < 900) return;
+      const now = performance.now();
+      if (now - lastPointerAt < 48) return;
+      lastPointerAt = now;
       pointerX = event.clientX;
       pointerY = event.clientY;
       if (pointerFrame) return;
@@ -50,8 +55,22 @@ const root = document.documentElement;
 
     const sections = [...document.querySelectorAll("main section[id]")];
     const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const navLinkByHash = new Map(navLinks.map((link) => [link.getAttribute("href"), link]));
+    let sectionPositions = [];
+    let activeSectionId = "";
     let scrollFrame = 0;
     let scrollTimer = 0;
+
+    function refreshSectionPositions() {
+      sectionPositions = sections.map((section) => ({
+        id: section.id,
+        top: section.getBoundingClientRect().top + window.scrollY
+      }));
+    }
+
+    refreshSectionPositions();
+    window.addEventListener("resize", refreshSectionPositions, { passive: true });
+    window.addEventListener("load", refreshSectionPositions);
 
     function handleScroll() {
       const scrollY = window.scrollY;
@@ -63,13 +82,15 @@ const root = document.documentElement;
       clearTimeout(scrollTimer);
       scrollTimer = setTimeout(() => document.body.classList.remove("is-scrolling"), 120);
 
-      let current = sections[0];
-      for (const section of sections) {
-        if (scrollY + 150 >= section.offsetTop) current = section;
+      let currentId = sectionPositions[0]?.id || "";
+      for (const section of sectionPositions) {
+        if (scrollY + 150 >= section.top) currentId = section.id;
       }
-      navLinks.forEach((link) => {
-        link.classList.toggle("active", current && link.getAttribute("href") === `#${current.id}`);
-      });
+      if (currentId && currentId !== activeSectionId) {
+        navLinkByHash.get(`#${activeSectionId}`)?.classList.remove("active");
+        navLinkByHash.get(`#${currentId}`)?.classList.add("active");
+        activeSectionId = currentId;
+      }
       scrollFrame = 0;
     }
 
@@ -171,6 +192,7 @@ const root = document.documentElement;
       const terminalObserver = new IntersectionObserver((entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
           typeTerminalStory();
+          refreshSectionPositions();
           terminalObserver.disconnect();
         }
       }, { threshold: 0.35 });
@@ -415,6 +437,7 @@ const root = document.documentElement;
       }).join("");
 
       grid.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+      refreshSectionPositions();
     }
 
     function renderFallbackProjects() {
