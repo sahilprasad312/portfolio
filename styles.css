@@ -1,10 +1,10 @@
 :root {
       color-scheme: dark;
       --bg: #000000;
-      --bg-2: #030006;
-      --surface: rgba(255, 255, 255, 0.075);
-      --surface-strong: rgba(255, 255, 255, 0.12);
-      --surface-soft: rgba(255, 255, 255, 0.045);
+      --bg-2: #000000;
+      --surface: #050708;
+      --surface-strong: #080c0e;
+      --surface-soft: #020303;
       --border: rgba(255, 255, 255, 0.16);
       --border-strong: rgba(255, 255, 255, 0.26);
       --text: #f7fbff;
@@ -17,7 +17,10 @@
       --amber: #b8f7ff;
       --rose: #0f5f73;
       --shadow: 0 28px 90px rgba(0, 0, 0, 0.38);
-      --glass-shadow: 0 18px 65px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      --neu-raised: 10px 10px 22px rgba(0,0,0,.92), -7px -7px 18px rgba(0,229,255,.045), inset 1px 1px 0 rgba(255,255,255,.045);
+      --neu-inset: inset 8px 8px 16px rgba(0,0,0,.9), inset -5px -5px 14px rgba(0,229,255,.04);
+      --neu-hover: 13px 13px 26px rgba(0,0,0,.95), -8px -8px 20px rgba(0,229,255,.075), inset 1px 1px 0 rgba(255,255,255,.06);
+      --glass-shadow: var(--neu-raised);
       --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
       --ease: cubic-bezier(.2, .8, .2, 1);
@@ -65,7 +68,7 @@
         radial-gradient(circle at 10% 18%, rgba(0, 229, 255, 0.2), transparent 28vw),
         radial-gradient(circle at 82% 8%, rgba(0, 143, 178, 0.12), transparent 30vw),
         radial-gradient(circle at 68% 64%, rgba(102, 242, 255, 0.07), transparent 24vw),
-        linear-gradient(180deg, #000000, #020008 46%, #000000);
+        linear-gradient(180deg, #000000, #000000 46%, #000000);
       color: var(--text);
       font-family: var(--font);
       line-height: 1.55;
@@ -224,11 +227,11 @@
       contain: paint;
       border: 1px solid var(--border);
       background:
-        linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.045)),
-        rgba(255,255,255,.055);
+        linear-gradient(145deg, rgba(0,229,255,.055), rgba(255,255,255,.018) 38%, rgba(0,0,0,.62)),
+        var(--surface);
       box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px) saturate(115%);
-      -webkit-backdrop-filter: blur(8px) saturate(115%);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       transform: translateZ(0);
     }
 
@@ -241,10 +244,8 @@
       content: "";
       position: absolute;
       inset: 0;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,.24), transparent 24%, transparent 66%, rgba(255,255,255,.08)),
-        radial-gradient(circle at 20% 8%, rgba(255,255,255,.2), transparent 24%);
-      opacity: .68;
+      background: linear-gradient(135deg, rgba(255,255,255,.07), transparent 34%, rgba(0,0,0,.22));
+      opacity: .8;
       pointer-events: none;
       transform: translate3d(-8%, 0, 0);
       animation: none;
@@ -325,7 +326,8 @@
       padding: 6px;
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 999px;
-      background: rgba(255,255,255,.035);
+      background: var(--surface-soft);
+      box-shadow: var(--neu-inset);
     }
 
     .nav-links a {
@@ -359,7 +361,8 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--text);
-      background: rgba(255,255,255,.07);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       cursor: pointer;
       transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
     }
@@ -558,9 +561,9 @@
       border: 1px solid var(--border);
       border-radius: 999px;
       color: var(--text);
-      background: rgba(255,255,255,.07);
+      background: var(--surface);
       font-weight: 800;
-      box-shadow: inset 0 1px rgba(255,255,255,.14);
+      box-shadow: var(--neu-raised);
       overflow: hidden;
       transition: transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease);
     }
@@ -583,7 +586,7 @@
     .btn:hover {
       transform: translateY(-3px);
       border-color: rgba(0,245,255,.55);
-      box-shadow: 0 15px 42px rgba(0,245,255,.18);
+      box-shadow: var(--neu-hover);
     }
 
     .btn:hover::before {
@@ -612,7 +615,8 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 999px;
       color: var(--muted);
-      background: rgba(255,255,255,.045);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       font-size: .88rem;
       font-weight: 700;
       transition: transform .25s var(--ease), color .25s var(--ease), background .25s var(--ease);
@@ -712,8 +716,8 @@
       padding: 18px;
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 22px;
-      background: rgba(3,6,12,.58);
-      box-shadow: inset 0 1px rgba(255,255,255,.08);
+      background: #000000;
+      box-shadow: var(--neu-inset);
       font-family: var(--mono);
     }
 
@@ -775,7 +779,8 @@
       padding: 16px;
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 20px;
-      background: rgba(255,255,255,.055);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       animation: none;
     }
 
@@ -978,7 +983,8 @@
     .contact-card:hover {
       transform: translateY(-8px);
       border-color: rgba(0,245,255,.42);
-      background: linear-gradient(135deg, rgba(255,255,255,.16), rgba(255,255,255,.055));
+      background: linear-gradient(145deg, rgba(0,229,255,.075), rgba(255,255,255,.022), rgba(0,0,0,.7));
+      box-shadow: var(--neu-hover);
     }
 
     .feature-icon {
@@ -1025,8 +1031,9 @@
       padding: 24px;
       border-radius: 28px;
       background:
-        linear-gradient(135deg, rgba(0,229,255,.08), rgba(255,255,255,.035)),
-        rgba(0,0,0,.42);
+        linear-gradient(145deg, rgba(0,229,255,.055), rgba(255,255,255,.018), rgba(0,0,0,.72)),
+        #000000;
+      box-shadow: var(--neu-inset);
       font-family: var(--mono);
     }
 
@@ -1121,7 +1128,8 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 999px;
       color: var(--text);
-      background: rgba(255,255,255,.055);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       font-weight: 800;
       transition: transform .25s var(--ease), background .25s var(--ease), border-color .25s var(--ease);
     }
@@ -1194,7 +1202,8 @@
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 999px;
       color: var(--muted);
-      background: rgba(255,255,255,.055);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       transition: color .24s var(--ease), transform .24s var(--ease), background .24s var(--ease);
     }
 
@@ -1252,7 +1261,8 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 999px;
       color: var(--text);
-      background: rgba(255,255,255,.045);
+      background: var(--surface);
+      box-shadow: var(--neu-inset);
       font-size: .72rem;
       font-weight: 800;
       letter-spacing: .01em;
@@ -1274,7 +1284,8 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 999px;
       color: var(--muted);
-      background: rgba(0,0,0,.14);
+      background: #000000;
+      box-shadow: var(--neu-inset);
       font-size: .76rem;
       font-weight: 800;
     }
@@ -1366,7 +1377,8 @@
       border: 1px solid rgba(255,255,255,.1);
       border-radius: 18px;
       color: var(--muted);
-      background: rgba(255,255,255,.045);
+      background: var(--surface);
+      box-shadow: var(--neu-raised);
       font-weight: 700;
       transition: color .24s var(--ease), transform .24s var(--ease), background .24s var(--ease);
     }
@@ -1415,6 +1427,7 @@
       border-radius: 16px;
       color: var(--text);
       background: rgba(5, 7, 13, .48);
+      box-shadow: var(--neu-inset);
       outline: 0;
       transition: border-color .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease);
     }
@@ -1476,7 +1489,8 @@
       color: var(--text);
       background: rgba(255,255,255,.08);
       box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       opacity: 0;
       pointer-events: none;
       transform: translateY(12px);
@@ -1516,7 +1530,8 @@
       color: var(--text);
       background: rgba(8, 12, 22, .84);
       box-shadow: var(--glass-shadow);
-      backdrop-filter: blur(8px);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
       opacity: 0;
       transform: translate(-50%, 16px);
       pointer-events: none;
